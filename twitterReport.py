@@ -7,7 +7,7 @@ except:
     sys.exit()
 
 
-import sys, getopt, re, os
+import sys, getopt, re, os, time
 from datetime import datetime
 from splinter.request_handler.status_code import HttpResponseError
 import getpass
@@ -64,8 +64,10 @@ def main(argv):
 #    with Browser('firefox',profile_preferences=proxy_settings) as browser:
         browser.visit("https://twitter.com/login")
         browser.execute_script("$('.js-username-field').val('%s');" % (username))
-        browser.execute_script("$('.js-password-field').val('%s');" % (password))
+        #browser.execute_script("$('.js-password-field').val('%s');" % (password))
+        time.sleep(5)
         browser.find_by_css("button[type='submit'].submit.btn.primary-btn").click()
+        time.sleep(5)
 
         if "https://twitter.com/login/error" in browser.url:
             print "The email and password you entered did not match our records."
