@@ -42,7 +42,7 @@ def main(argv):
         print 'The accounts list must have only 1 account per line'
         sys.exit()
 
-    password = getpass.getpass()
+    #password = getpass.getpass()
 
 # comment this line if you want to use privoxy + tor:
     with Browser() as browser:
